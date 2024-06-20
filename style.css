@@ -1,0 +1,91 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #4a148c;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #ba68c8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #6a1b9a;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #4a148c;
+}
+
+#gameArea {
+    display: none;
+    text-align: center;
+}
+
+#gameArea h2 {
+    margin-bottom: 20px;
+    color: #4a148c;
+}
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 0;
+    border: 2px solid #4a148c;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chess-square {
+    width: 50px;
+    height: 50px;
+}
+
+.black {
+    background-color: #4a148c;
+}
+
+.white {
+    background-color: #e1bee7;
+}

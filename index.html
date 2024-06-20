@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Chess Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Color Chess Game</h1>
+    <form id="playerForm">
+        <label for="playerName">Nama Pemain:</label>
+        <input type="text" id="playerName" name="playerName" required>
+        <button type="submit">Mulai</button>
+    </form>
+    <div id="gameArea">
+        <h2>Selamat datang, <span id="displayName"></span>!</h2>
+        <div id="chessboard"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
