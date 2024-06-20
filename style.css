@@ -33,7 +33,7 @@ form label {
     color: #fff;
 }
 
-form input {
+form input, form select {
     padding: 10px;
     margin-bottom: 20px;
     border: none;
@@ -67,25 +67,5 @@ form button:hover {
     color: #4a148c;
 }
 
-#chessboard {
-    display: grid;
-    grid-template-columns: repeat(8, 50px);
-    grid-template-rows: repeat(8, 50px);
-    gap: 0;
-    border: 2px solid #4a148c;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.chess-square {
-    width: 50px;
-    height: 50px;
-}
-
-.black {
-    background-color: #4a148c;
-}
-
-.white {
-    background-color: #e1bee7;
-}
+#scores {
+    margin-bottom:
