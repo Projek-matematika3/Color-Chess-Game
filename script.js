@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         form.classList.add('hidden');
         gameArea.classList.remove('hidden');
 
-        createChessBoard();
+        createChessBoard(); // Create chessboard after form submission
     });
 
     function createChessBoard() {
