@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('playerName', playerName);
 
         displayName.textContent = playerName;
-        form.style.display = 'none';
-        gameArea.style.display = 'block';
+        form.classList.add('hidden');
+        gameArea.classList.remove('hidden');
 
         createChessBoard();
     });
@@ -75,26 +75,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function checkWinner() {
-        // Simplified winning logic for this example
         const squares = Array.from(document.querySelectorAll('.chess-square'));
         if (squares.some(square => !square.style.backgroundColor)) return; // Not a winning condition
 
-        // Check if player wins
         const playerWins = squares.every(square => square.style.backgroundColor === '#ffeb3b');
         if (playerWins) {
             playerScore++;
             updateScores();
-            alert('Player wins!');
+            showWinMessage('Player');
             resetBoard();
             return;
         }
 
-        // Check if opponent/computer wins
         const opponentWins = squares.every(square => square.style.backgroundColor === '#00e676');
         if (opponentWins) {
             opponentScore++;
             updateScores();
-            alert('Opponent wins!');
+            showWinMessage('Opponent');
             resetBoard();
             return;
         }
@@ -110,15 +107,28 @@ document.addEventListener('DOMContentLoaded', function() {
         playerTurn = true;
     }
 
-    resetButton.addEventListener('click', resetBoard);
+    resetButton.addEventListener('click', function() {
+        resetBoard();
+        gameArea.classList.add('hidden');
+        form.classList.remove('hidden');
+        playerScore = 0;
+        opponentScore = 0;
+        updateScores();
+    });
 
-    // Menampilkan nama pemain jika sudah tersimpan di localStorage
+    // Function to display win message
+    function showWinMessage(winner) {
+        const message = `${winner} wins!`;
+        alert(message);
+    }
+
+    // Retrieve player name from localStorage if available
     const savedPlayerName = localStorage.getItem('playerName');
     if (savedPlayerName) {
         playerName = savedPlayerName;
         displayName.textContent = savedPlayerName;
-        form.style.display = 'none';
-        gameArea.style.display = 'block';
+        form.classList.add('hidden');
+        gameArea.classList.remove('hidden');
         createChessBoard();
     }
 });
