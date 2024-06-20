@@ -14,17 +14,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let opponentScore = 0;
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent default form submission
 
         playerName = document.getElementById('playerName').value;
         mode = document.getElementById('mode').value;
         localStorage.setItem('playerName', playerName);
 
         displayName.textContent = playerName;
-        form.classList.add('hidden');
-        gameArea.classList.remove('hidden');
+        form.classList.add('hidden'); // Hide the form after submit
+        gameArea.classList.remove('hidden'); // Show the game area
 
-        createChessBoard(); // Create chessboard after form submission
+        createChessBoard(); // Call function to create chessboard
     });
 
     function createChessBoard() {
