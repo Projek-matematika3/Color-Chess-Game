@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleSquareClick(event) {
+        if (event.target.style.backgroundColor) return; // Ignore already clicked squares
+
         if (playerTurn) {
             event.target.style.backgroundColor = '#ffeb3b'; // Player color
             playerTurn = false;
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkWinner() {
         // Simplified winning logic for this example
         const squares = Array.from(document.querySelectorAll('.chess-square'));
-        if (squares.some(square => square.style.backgroundColor === '')) return; // Not a winning condition
+        if (squares.some(square => !square.style.backgroundColor)) return; // Not a winning condition
 
         // Check if player wins
         const playerWins = squares.every(square => square.style.backgroundColor === '#ffeb3b');
@@ -114,4 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedPlayerName = localStorage.getItem('playerName');
     if (savedPlayerName) {
         playerName = savedPlayerName;
-        displayName.textContent = savedPlayerName
+        displayName.textContent = savedPlayerName;
+        form.style.display = 'none';
+        gameArea.style.display = 'block';
+        createChessBoard();
+    }
+});
