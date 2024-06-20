@@ -45,20 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleSquareClick(event) {
-        if (event.target.style.backgroundColor) return; // Ignore already clicked squares
+        if (!playerTurn) return; // Exit if it's not player's turn
 
-        if (playerTurn) {
+        if (!event.target.style.backgroundColor) { // Only allow if square is not already colored
             event.target.style.backgroundColor = '#ffeb3b'; // Player color
             playerTurn = false;
             checkWinner();
             if (mode === 'computer' && !playerTurn) {
                 setTimeout(computerMove, 500); // Delay for computer move
-            }
-        } else {
-            if (mode === 'friend') {
-                event.target.style.backgroundColor = '#00e676'; // Opponent color for friend mode
-                playerTurn = true;
-                checkWinner();
             }
         }
     }
@@ -78,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const squares = Array.from(document.querySelectorAll('.chess-square'));
         if (squares.some(square => !square.style.backgroundColor)) return; // Not a winning condition
 
-        const playerWins = squares.every(square => square.style.backgroundColor === '#ffeb3b');
+        const playerWins = squares.every(square => square.style.backgroundColor === 'rgb(255, 235, 59)');
         if (playerWins) {
             playerScore++;
             updateScores();
@@ -87,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const opponentWins = squares.every(square => square.style.backgroundColor === '#00e676');
+        const opponentWins = squares.every(square => square.style.backgroundColor === 'rgb(0, 230, 118)');
         if (opponentWins) {
             opponentScore++;
             updateScores();
